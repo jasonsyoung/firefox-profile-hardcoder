@@ -1,0 +1,15 @@
+{
+    "name": "firefox-profile-hardcoder",
+    "version": "0.0.1",
+    "description": "Updates a Firefox.app to load a specific profile",
+    "main": "index.js",
+    "repository": "git@github.com:jasonsyoung/firefox-profile-hardcoder.git",
+    "author": "Jason Young <jason@jasonsyoung.com>",
+    "license": "MIT",
+    "dependencies": {
+        "argparse": "^1.0.9",
+        "ncp": "^2.0.0",
+        "plist": "^2.1.0",
+        "root-require": "^0.3.1"
+    }
+}
