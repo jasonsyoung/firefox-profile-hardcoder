@@ -1,13 +1,13 @@
 {
     "name": "firefox-profile-hardcoder",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Updates a Firefox.app to load a specific profile",
     "main": "index.js",
     "repository": "git@github.com:jasonsyoung/firefox-profile-hardcoder.git",
     "author": "Jason Young <jason@jasonsyoung.com>",
     "license": "MIT",
     "scripts": {
-        "build": "npm install && pkg --targets node8-osx --output dist/firefox-profile-hardcoder ."
+        "build": "npm install && pkg --targets node8-osx --out-path dist ."
     },
     "bin": {
         "firefox-profile-hardcoder": "./index.js"

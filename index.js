@@ -4,7 +4,7 @@ const fs = require("fs");
 
 const ArgumentParser = require("argparse").ArgumentParser;
 const parser = new ArgumentParser({
-  version: '0.0.1',
+  version: '0.0.2',
   addHelp: true,
   description: 'Updates a Firefox.app to load a specific profile'
 });
