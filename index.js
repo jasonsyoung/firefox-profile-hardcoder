@@ -2,12 +2,11 @@
 "use strict";
 const fs = require("fs");
 
-const pjson = require("root-require")("package.json") || {};
 const ArgumentParser = require("argparse").ArgumentParser;
 const parser = new ArgumentParser({
-  version: pjson.version,
+  version: '0.0.1',
   addHelp: true,
-  description: pjson.description
+  description: 'Updates a Firefox.app to load a specific profile'
 });
 parser.addArgument(["-a", "--app"], {
   required: true,
@@ -27,7 +26,6 @@ parser.addArgument(["-n", "--no-backup"], {
 });
 
 const options = parser.parseArgs();
-options.app = options.app.trim();
 
 if (!fs.existsSync(options.app)) {
   let error = new Error(`${options.app} does not exist!`);
@@ -36,9 +34,9 @@ if (!fs.existsSync(options.app)) {
 }
 
 if (options.backup) {
-  options.appBackup = options.app + `.backup.${new Date().getTime()}`;
+  options.appBackup = options.app + `.backup`;
   if (fs.existsSync(options.appBackup)) {
-    console.log("Backup somehow already exists, not performing backup");
+    console.log(`Backup already exists, not performing backup`);
   } else {
     const ncp = require("ncp").ncp;
     ncp.limit = 16;

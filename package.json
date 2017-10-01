@@ -6,10 +6,16 @@
     "repository": "git@github.com:jasonsyoung/firefox-profile-hardcoder.git",
     "author": "Jason Young <jason@jasonsyoung.com>",
     "license": "MIT",
+    "scripts": {
+        "build": "npm install && pkg --targets node8-osx --output dist/firefox-profile-hardcoder ."
+    },
+    "bin": {
+        "firefox-profile-hardcoder": "./index.js"
+    },
     "dependencies": {
         "argparse": "^1.0.9",
         "ncp": "^2.0.0",
-        "plist": "^2.1.0",
-        "root-require": "^0.3.1"
+        "pkg": "^4.2.4",
+        "plist": "^2.1.0"
     }
 }
