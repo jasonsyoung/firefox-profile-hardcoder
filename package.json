@@ -1,6 +1,6 @@
 {
     "name": "firefox-profile-hardcoder",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "Updates a Firefox.app to load a specific profile",
     "main": "index.js",
     "repository": "git@github.com:jasonsyoung/firefox-profile-hardcoder.git",
