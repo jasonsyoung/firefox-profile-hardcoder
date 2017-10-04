@@ -4,7 +4,7 @@ const fs = require("fs");
 
 const ArgumentParser = require("argparse").ArgumentParser;
 const parser = new ArgumentParser({
-  version: '0.0.4',
+  version: '0.0.5',
   addHelp: true,
   description: 'Updates a Firefox.app to load a specific profile'
 });
@@ -33,12 +33,14 @@ if (!fs.existsSync(options.app)) {
   throw error;
 }
 
+const child_process = require('child_process');
+
 if (options.backup) {
   options.appBackup = options.app + `.ff-hc-backup`;
   const ncp = require("ncp").ncp;
   ncp.limit = 16;
   if (fs.existsSync(options.appBackup)) {
-    require('child_process').execSync(`/bin/rm -rf "${options.appBackup}"`);
+    child_process.execSync(`/bin/rm -rf "${options.appBackup}"`);
   }
   ncp(options.app, options.appBackup, err => {
     if (err) {
@@ -74,6 +76,7 @@ fs.writeFile(launcherPath, launcherData, err => {
         fs.chmod(launcherPath, '755', error => {
             if (!error) {
                 console.log(`Successfully modified ${options.app}`);
+                child_process.exec(`/usr/bin/touch "${options.app}"`);
                 process.exit(0);
             } else {
                 console.error(`Failed settings permissions on ${launcherPath}`, error);
