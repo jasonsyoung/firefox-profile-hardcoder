@@ -22,7 +22,7 @@ Modify Firefox.app to launch the `jason` profile. This will first copy Firefox.a
 firefox-profile-hardcoder -a /Applications/Firefox.app -p jason
 ```
 
-If you don't care about backing up (all this package does is moodify two files), you can add the `-n` parameter:
+If you don't care about backing up (all this package does is modify two files), you can add the `-n` parameter:
 ```
 firefox-profile-hardcoder -a /Applications/Firefox.app -p jason -n
 ```
